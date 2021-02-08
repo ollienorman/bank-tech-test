@@ -30,4 +30,28 @@ describe Transaction do
     end
   end
 
+  describe '#debit' do
+    it 'returns to two decimal places if not nil' do
+      transaction = Transaction.new(debit: 1000)
+      expect(transaction.debit).to eq('1000.00')
+    end
+
+    it 'returns nil if nil' do
+      transaction = Transaction.new
+      expect(transaction.debit).to eq(nil)
+    end
+  end
+
+  describe '#balance' do
+    it 'returns to two decimal places if not nil' do
+      transaction = Transaction.new(balance: 1000)
+      expect(transaction.balance).to eq('1000.00')
+    end
+
+    it 'returns nil if nil' do
+      transaction = Transaction.new
+      expect(transaction.balance).to eq(nil)
+    end
+  end
+
 end
