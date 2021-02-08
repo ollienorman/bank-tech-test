@@ -1,4 +1,4 @@
-require 'statement'
+require_relative './statement'
 
 class Account
 
@@ -17,13 +17,15 @@ class Account
     add_deposit_transaction(amount)
   end
 
-  def add_deposit_transaction(amount)
-    @statement.new_transaction(date: @timestamp, balance: @balance, credit: amount)
-  end
-
   def withdraw(amount)
     @balance -= amount
     add_withdraw_transaction(amount)
+  end
+
+  private
+
+  def add_deposit_transaction(amount)
+    @statement.new_transaction(date: @timestamp, balance: @balance, credit: amount)
   end
 
   def add_withdraw_transaction(amount)

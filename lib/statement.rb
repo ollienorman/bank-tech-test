@@ -1,4 +1,4 @@
-require 'transaction'
+require_relative './transaction'
 
 class Statement
 
