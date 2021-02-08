@@ -9,27 +9,26 @@ class Account
   def initialize(statement = Statement)
     @balance = STARTING_BALANCE
     @statement = statement.new
-    @timestamp = Time.new.strftime("%d/%m/%Y")
   end
 
-  def deposit(amount)
+  def deposit(date, amount)
     @balance += amount
-    add_deposit_transaction(amount)
+    add_deposit_transaction(date, amount)
   end
 
-  def withdraw(amount)
+  def withdraw(date, amount)
     @balance -= amount
-    add_withdraw_transaction(amount)
+    add_withdraw_transaction(date, amount)
   end
 
   private
 
-  def add_deposit_transaction(amount)
-    @statement.new_transaction(date: @timestamp, balance: @balance, credit: amount)
+  def add_deposit_transaction(date, amount)
+    @statement.new_transaction(date: date, balance: @balance, credit: amount)
   end
 
-  def add_withdraw_transaction(amount)
-    @statement.new_transaction(date: @timestamp, balance: @balance, debit: amount)
+  def add_withdraw_transaction(date, amount)
+    @statement.new_transaction(date: date, balance: @balance, debit: amount)
   end
 
 end
