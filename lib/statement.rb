@@ -25,7 +25,7 @@ class Statement
   end
 
   def transaction_formatter(transaction)
-    "#{transaction.date} ||#{number_formatter(transaction.credit)} ||#{number_formatter(transaction.debit)} || #{number_formatter(transaction.balance)}"
+    "#{transaction.date} || #{number_formatter(transaction.credit)}|| #{number_formatter(transaction.debit)}|| #{number_formatter(transaction.balance)}"
   end
 
   def number_formatter(number)
