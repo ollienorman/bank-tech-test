@@ -6,4 +6,10 @@ describe Account do
       expect { subject.deposit(1000) }.to change { subject.balance }.by(1000)
     end
   end
+
+  describe '#balance' do
+    it 'has a default starting balance' do
+      expect(subject.balance).to eq Account::STARTING_BALANCE
+    end
+  end
 end
