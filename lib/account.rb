@@ -1,7 +1,6 @@
 require_relative './statement'
 
 class Account
-
   STARTING_BALANCE = 0
 
   attr_reader :balance, :statement
@@ -30,5 +29,4 @@ class Account
   def add_withdraw_transaction(date, amount)
     @statement.new_transaction(date: date, balance: @balance, debit: amount)
   end
-
 end

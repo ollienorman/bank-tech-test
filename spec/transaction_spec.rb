@@ -1,7 +1,6 @@
 require 'transaction'
 
 describe Transaction do
-
   it 'contains a date' do
     expect(subject).to respond_to(:date)
   end
@@ -53,5 +52,4 @@ describe Transaction do
       expect(transaction.balance).to eq(nil)
     end
   end
-
 end

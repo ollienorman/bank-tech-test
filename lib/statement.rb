@@ -1,7 +1,6 @@
 require_relative './transaction'
 
 class Statement
-
   attr_reader :all_transactions
 
   def initialize(transaction = Transaction)
@@ -15,7 +14,7 @@ class Statement
 
   def print_statement
     puts statement_header
-    all_transactions.reverse.each { |transaction| puts transaction_formatter(transaction)}
+    all_transactions.reverse.each { |transaction| puts transaction_formatter(transaction) }
   end
 
   private
@@ -29,7 +28,6 @@ class Statement
   end
 
   def number_formatter(number)
-    number ? '%.2f' % number + " " : nil
+    number ? '%.2f' % number + ' ' : nil
   end
-  
 end
