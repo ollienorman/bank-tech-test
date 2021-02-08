@@ -23,6 +23,11 @@ describe Transaction do
       transaction = Transaction.new(credit: 1000)
       expect(transaction.credit).to eq('1000.00')
     end
+
+    it 'returns nil if nil' do
+      transaction = Transaction.new
+      expect(transaction.credit).to eq(nil)
+    end
   end
 
 end
