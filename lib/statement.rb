@@ -21,7 +21,7 @@ class Statement
   private
 
   def formatter(transaction)
-    "#{transaction.date} || #{'%.2f' % transaction.credit} || #{'%.2f' % transaction.debit} || #{'%.2f' % transaction.balance}"
+    "#{transaction.date} || #{transaction.credit} || #{transaction.debit} || #{transaction.balance}"
   end
 
 end

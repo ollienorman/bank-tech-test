@@ -9,4 +9,8 @@ class Transaction
     @balance = balance
   end
 
+  def credit
+    '%.2f' % @credit
+  end
+
 end
