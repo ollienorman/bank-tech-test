@@ -12,4 +12,10 @@ describe Statement do
       expect(subject.all_transactions.first).to eq transaction
     end
   end
+
+  describe '#print_statement' do
+    it 'contains the correct header' do
+      expect { subject.print_statement }.to output('date || credit || debit || balance').to_stdout
+    end
+  end
 end
