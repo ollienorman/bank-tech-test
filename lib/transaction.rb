@@ -10,7 +10,7 @@ class Transaction
   end
 
   def credit
-    '%.2f' % @credit
+    @credit ? '%.2f' % @credit : nil
   end
 
 end
