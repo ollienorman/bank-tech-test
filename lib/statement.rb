@@ -14,14 +14,22 @@ class Statement
   end
 
   def print_statement
-    puts 'date || credit || debit || balance'
-    all_transactions.reverse.each { |transaction| puts formatter(transaction)}
+    puts statement_header
+    all_transactions.reverse.each { |transaction| puts transaction_formatter(transaction)}
   end
 
   private
 
-  def formatter(transaction)
-    "#{transaction.date} || #{transaction.credit} || #{transaction.debit} || #{transaction.balance}"
+  def statement_header
+    'date || credit || debit || balance'
   end
 
+  def transaction_formatter(transaction)
+    "#{transaction.date} ||#{number_formatter(transaction.credit)} ||#{number_formatter(transaction.debit)} || #{number_formatter(transaction.balance)}"
+  end
+
+  def number_formatter(number)
+    number ? '%.2f' % number + " " : nil
+  end
+  
 end

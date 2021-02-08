@@ -9,8 +9,4 @@ class Transaction
     @balance = balance
   end
 
-  def credit
-    @credit ? '%.2f' % @credit : nil
-  end
-
 end

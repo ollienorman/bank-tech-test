@@ -23,12 +23,12 @@ describe Statement do
 
     it 'contains the formatted transaction' do
       allow(transaction).to receive(:date).and_return(time)
-      allow(transaction).to receive(:credit).and_return(1000.00)
+      allow(transaction).to receive(:credit).and_return(1000)
       allow(transaction).to receive(:debit)
-      allow(transaction).to receive(:balance).and_return(1000.00)
+      allow(transaction).to receive(:balance).and_return(1000)
       subject.new_transaction
       expect { subject.print_statement }
-        .to output(a_string_including("#{time} || 1000.00 ||  || 1000.00"))
+        .to output(a_string_including("#{time} || 1000.00 || || 1000.00"))
         .to_stdout
     end
   end

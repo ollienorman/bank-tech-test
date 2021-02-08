@@ -21,7 +21,7 @@ describe Transaction do
   describe '#credit' do
     it 'returns to two decimal places if not nil' do
       transaction = Transaction.new(credit: 1000)
-      expect(transaction.credit).to eq('1000.00')
+      expect(transaction.credit).to eq(1000.00)
     end
 
     it 'returns nil if nil' do
@@ -33,7 +33,7 @@ describe Transaction do
   describe '#debit' do
     it 'returns to two decimal places if not nil' do
       transaction = Transaction.new(debit: 1000)
-      expect(transaction.debit).to eq('1000.00')
+      expect(transaction.debit).to eq(1000.00)
     end
 
     it 'returns nil if nil' do
@@ -45,7 +45,7 @@ describe Transaction do
   describe '#balance' do
     it 'returns to two decimal places if not nil' do
       transaction = Transaction.new(balance: 1000)
-      expect(transaction.balance).to eq('1000.00')
+      expect(transaction.balance).to eq(1000.00)
     end
 
     it 'returns nil if nil' do
