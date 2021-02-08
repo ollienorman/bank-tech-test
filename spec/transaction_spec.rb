@@ -18,4 +18,11 @@ describe Transaction do
     expect(subject).to respond_to(:balance)
   end
 
+  describe '#credit' do
+    it 'returns to two decimal places if not nil' do
+      transaction = Transaction.new(credit: 1000)
+      expect(transaction.credit).to eq('1000.00')
+    end
+  end
+
 end

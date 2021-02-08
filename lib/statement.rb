@@ -13,4 +13,15 @@ class Statement
     @all_transactions << @transaction.new(date: date, credit: credit, debit: debit, balance: balance)
   end
 
+  def print_statement
+    puts 'date || credit || debit || balance'
+    all_transactions.reverse.each { |transaction| puts formatter(transaction)}
+  end
+
+  private
+
+  def formatter(transaction)
+    "#{transaction.date} || #{'%.2f' % transaction.credit} || #{'%.2f' % transaction.debit} || #{'%.2f' % transaction.balance}"
+  end
+
 end
