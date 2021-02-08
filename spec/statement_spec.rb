@@ -7,8 +7,9 @@ describe Statement do
   subject { described_class.new(transaction_class) }
 
   describe '#new_transaction' do
-    it 'can create a new transaction object' do
-      expect(subject.new_transaction).to eq transaction
+    it 'adds a new transaction to all_transactions' do
+      subject.new_transaction
+      expect(subject.all_transactions.first).to eq transaction
     end
   end
 end

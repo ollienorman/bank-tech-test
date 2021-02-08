@@ -27,6 +27,11 @@ describe Account do
       subject.deposit(1000)
       expect { subject.withdraw(1000) }.to change { subject.balance }.by(-1000)
     end
+
+    it 'adds a new transaction to the accounts statement' do
+      expect(subject.statement).to receive(:new_transaction).with(date: time, debit: 1000, balance: -1000)
+      subject.withdraw(1000)
+    end
   end
 
   describe '#balance' do
