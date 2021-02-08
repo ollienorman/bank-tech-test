@@ -1,3 +1,6 @@
+See spec/feature_spec.rb to see example of how to use the program (using the acceptance criteria). User would only use account.deposit, account.withdraw, and account.statement.print_statement.
+
+
 ## Specification
 
 ### Requirements
