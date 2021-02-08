@@ -23,6 +23,11 @@ class Account
 
   def withdraw(amount)
     @balance -= amount
+    add_withdraw_transaction(amount)
+  end
+
+  def add_withdraw_transaction(amount)
+    @statement.new_transaction(date: @timestamp, balance: @balance, debit: amount)
   end
 
 end
