@@ -1,10 +1,23 @@
-To use: run 'bundle install'. 
+To use: 
 
-Enter IRB.
+1. Run 
+```
+bundle install
+``` 
 
-See spec/feature_spec.rb to see example of how to use the program (using the acceptance criteria). User would only use account.deposit, account.withdraw, and account.statement.print_statement.
+2. Enter IRB.
 
-To run tests, run 'rspec'.
+3. See spec/feature_spec.rb to see example of how to use the program (using the acceptance criteria). User would only use these commands:
+```
+account.deposit
+account.withdraw
+account.statement.print_statement
+```
+
+4. To run tests, run
+```
+rspec
+```
 
 
 ## Specification
