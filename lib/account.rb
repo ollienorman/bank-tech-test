@@ -15,7 +15,6 @@ class Account
 
   def deposit(amount)
     raise 'Cannot deposit negative amount' if amount.negative?
-
     @balance += amount
     add_deposit_transaction(amount)
   end
