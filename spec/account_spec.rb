@@ -3,8 +3,8 @@
 require 'account'
 
 describe Account do
-  time = Time.new.strftime("%d/%m/%Y")
-  let(:transaction_history) {double :transaction_history, new_transaction: true}
+  time = Time.new.strftime('%d/%m/%Y')
+  let(:transaction_history) { double :transaction_history, new_transaction: true }
   let(:statement) { double :statement, transaction_history: transaction_history }
   let(:statement_class) { double :statement_class, new: statement }
   subject { described_class.new(statement_class) }
@@ -33,7 +33,7 @@ describe Account do
     end
 
     it 'throws an error if not enough funds in the account' do
-      expect { subject.withdraw(1) }.to raise_error "Not enough funds!"
+      expect { subject.withdraw(1) }.to raise_error 'Not enough funds!'
     end
   end
 

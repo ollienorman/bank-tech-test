@@ -3,7 +3,6 @@
 require_relative './transaction_history'
 
 class Statement
-
   attr_reader :transaction_history
 
   def initialize(transaction_history = TransactionHistory)

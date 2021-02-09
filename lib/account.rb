@@ -10,18 +10,20 @@ class Account
   def initialize(statement = Statement)
     @balance = STARTING_BALANCE
     @statement = statement.new
-    @timestamp = Time.new.strftime("%d/%m/%Y")
+    @timestamp = Time.new.strftime('%d/%m/%Y')
   end
 
   def deposit(amount)
-    fail "Cannot deposit negative amount" if amount < 0
+    raise 'Cannot deposit negative amount' if amount.negative?
+
     @balance += amount
     add_deposit_transaction(amount)
   end
 
   def withdraw(amount)
-    fail "Cannot withdraw negative amount" if amount < 0
-    fail "Not enough funds!" if amount > @balance
+    raise 'Cannot withdraw negative amount' if amount.negative?
+    raise 'Not enough funds!' if amount > @balance
+
     @balance -= amount
     add_withdraw_transaction(amount)
   end
