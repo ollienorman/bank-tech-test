@@ -27,7 +27,8 @@ describe Account do
     end
 
     it 'adds a new transaction to the accounts statement' do
-      expect(subject.statement.transaction_history).to receive(:new_transaction).with(date: time, debit: 1000, balance: -1000)
+      subject.deposit(1000)
+      expect(subject.statement.transaction_history).to receive(:new_transaction).with(date: time, debit: 1000, balance: 0)
       subject.withdraw(1000)
     end
 
