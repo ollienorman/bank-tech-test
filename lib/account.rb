@@ -25,10 +25,10 @@ class Account
   private
 
   def add_deposit_transaction(date, amount)
-    @statement.new_transaction(date: date, balance: @balance, credit: amount)
+    @statement.transaction_history.new_transaction(date: date, balance: @balance, credit: amount)
   end
 
   def add_withdraw_transaction(date, amount)
-    @statement.new_transaction(date: date, balance: @balance, debit: amount)
+    @statement.transaction_history.new_transaction(date: date, balance: @balance, debit: amount)
   end
 end

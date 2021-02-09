@@ -1,22 +1,18 @@
 # frozen_string_literal: true
 
-require_relative './transaction'
+require_relative './transaction_history'
 
 class Statement
-  attr_reader :all_transactions
 
-  def initialize(transaction = Transaction)
-    @transaction = transaction
-    @all_transactions = []
-  end
+  attr_reader :transaction_history
 
-  def new_transaction(date: nil, credit: nil, debit: nil, balance: nil)
-    @all_transactions << @transaction.new(date: date, credit: credit, debit: debit, balance: balance)
+  def initialize(transaction_history = TransactionHistory)
+    @transaction_history = transaction_history.new
   end
 
   def print_statement
     puts statement_header
-    all_transactions.reverse.each { |transaction| puts transaction_formatter(transaction) }
+    @transaction_history.all_transactions.reverse.each { |transaction| puts transaction_formatter(transaction) }
   end
 
   private

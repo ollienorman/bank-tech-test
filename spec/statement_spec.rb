@@ -3,16 +3,10 @@
 require 'statement'
 
 describe Statement do
-  let(:transaction) { double :transaction }
-  let(:transaction_class) { double :transaction_class, new: transaction }
-  subject { described_class.new(transaction_class) }
-
-  describe '#new_transaction' do
-    it 'adds a new transaction to all_transactions' do
-      subject.new_transaction
-      expect(subject.all_transactions.first).to eq transaction
-    end
-  end
+  let(:transaction) { double :transaction, date: '01/01/2000', credit: 1000, debit: nil, balance: 1000 }
+  let(:transaction_history) { double :transaction_history, all_transactions: [transaction] }
+  let(:transaction_history_class) { double :transaction_history_class, new: transaction_history }
+  subject { described_class.new(transaction_history_class) }
 
   describe '#print_statement' do
     it 'contains the correct header' do
@@ -22,11 +16,6 @@ describe Statement do
     end
 
     it 'contains the formatted transaction' do
-      allow(transaction).to receive(:date).and_return('01/01/2000')
-      allow(transaction).to receive(:credit).and_return(1000)
-      allow(transaction).to receive(:debit)
-      allow(transaction).to receive(:balance).and_return(1000)
-      subject.new_transaction
       expect { subject.print_statement }
         .to output(a_string_including('01/01/2000 || 1000.00 || || 1000.00'))
         .to_stdout

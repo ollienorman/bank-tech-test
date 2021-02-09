@@ -3,7 +3,8 @@
 require 'account'
 
 describe Account do
-  let(:statement) { double :statement, new_transaction: true }
+  let(:transaction_history) {double :transaction_history, new_transaction: true}
+  let(:statement) { double :statement, transaction_history: transaction_history }
   let(:statement_class) { double :statement_class, new: statement }
   subject { described_class.new(statement_class) }
 
@@ -13,7 +14,7 @@ describe Account do
     end
 
     it 'adds a new transaction to the accounts statement' do
-      expect(subject.statement).to receive(:new_transaction).with(date: '01/01/2000', credit: 1000, balance: 1000)
+      expect(subject.statement.transaction_history).to receive(:new_transaction).with(date: '01/01/2000', credit: 1000, balance: 1000)
       subject.deposit('01/01/2000', 1000)
     end
   end
@@ -25,7 +26,7 @@ describe Account do
     end
 
     it 'adds a new transaction to the accounts statement' do
-      expect(subject.statement).to receive(:new_transaction).with(date: '01/01/2000', debit: 1000, balance: -1000)
+      expect(subject.statement.transaction_history).to receive(:new_transaction).with(date: '01/01/2000', debit: 1000, balance: -1000)
       subject.withdraw('01/01/2000', 1000)
     end
   end
