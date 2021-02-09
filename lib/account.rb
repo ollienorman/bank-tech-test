@@ -14,11 +14,13 @@ class Account
   end
 
   def deposit(amount)
+    fail "Cannot deposit negative amount" if amount < 0
     @balance += amount
     add_deposit_transaction(amount)
   end
 
   def withdraw(amount)
+    fail "Cannot withdraw negative amount" if amount < 0
     fail "Not enough funds!" if amount > @balance
     @balance -= amount
     add_withdraw_transaction(amount)
