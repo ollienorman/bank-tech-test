@@ -30,6 +30,10 @@ describe Account do
       expect(subject.statement.transaction_history).to receive(:new_transaction).with(date: time, debit: 1000, balance: -1000)
       subject.withdraw(1000)
     end
+
+    it 'throws an error if not enough funds in the account' do
+      expect { subject.withdraw(1) }.to raise_error "Not enough funds!"
+    end
   end
 
   describe '#balance' do
